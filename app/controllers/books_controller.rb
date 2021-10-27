@@ -13,8 +13,14 @@ class BooksController < ApplicationController
   def create
     # render json: params
     @book = Book.new(book_params)
-    @book.save
-    redirect_to book_path(@book)
+    begin
+      @book.save!
+      redirect_to @book
+    rescue 
+      # render json: @book.errors.full_messages
+      render 'edit'
+    end
+
   end
 
   def update

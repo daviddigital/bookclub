@@ -9,7 +9,7 @@ class Book < ApplicationRecord
     scope :find_out_of_stock, -> { where(status: "out_of_stock") }
     scope :find_banned, -> { where(status: "banned") }
 
-    has_one_attached :cover
+    has_one_attached :cover, dependent: :purge
 
     validates :title, presence: { message: "Add title" }
     validates :date_published, presence: { message: "Add title" }

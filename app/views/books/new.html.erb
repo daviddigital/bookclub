@@ -1,6 +1,6 @@
-<h1>Add a New Books</h1>
+<h1>Add a New Book</h1>
 
-<%= form_with model: @book do |f| %>
+<%= form_with model: @book, url: "/books" do |f| %>
 <p> 
 <%= f.label :title %>
 <%= f.text_field :title%>

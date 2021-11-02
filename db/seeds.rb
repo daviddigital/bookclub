@@ -14,7 +14,7 @@ clarke = Author.create(first_name: "Arthur", last_name: "Clarke")
 scifi = Genre.create(genre: "Sci-Fi")
 fantasy = Genre.create(genre: "Fantasy")
 
-harry = Book.create(title:"Harry Potter", author: jkr)
+harry = Book.create(title:"Harry Potter", author: jkr, status: "in_stock")
 beasts = Book.create(title:"Fantastic Beasts", author: jkr)
 space = Book.create(title: "2001", author: clarke)
 fall = Book.create(title: "A Fall Of Moondust", author: clarke)

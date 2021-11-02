@@ -1,12 +1,19 @@
 <h1><%= @book.title %> </h1>
-<h3><%= "By #{@book.author.full_name}" %>
+<h3><%= "By #{@book.author.full_name}" %> </h3>
+<% if @book.cover.attached? %>
+    <%= image_tag @book.cover, width: 150 %>
+<% end %>
 <h5><%= "Genres: #{@book.genres.map{ |g | g.genre}.join(", ")}"%> </h5>
 <p> <%= "Published by #{@book.publisher}"%> </p>
 <p> 
     <%= link_to "<< Back to book list>>", books_path%> 
+    <%if policy(@book).update? %>
     |
     <%= link_to "Edit", edit_book_path(@book)%>
+    <% end %> 
+    <% if policy(@book).destroy? %>
     |
     <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure you want to delete this book?"} %>
+    <% end %>
 </p>
 
